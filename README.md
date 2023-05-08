@@ -1,5 +1,5 @@
 # Build and Deploy nodejs application on EC2 instance - Freestyle 
-
+this is parikshit chavan making changes to the readme, thats what i can do better. damn it
 # Pre-requisites
 
 1. A Jenkins server 
