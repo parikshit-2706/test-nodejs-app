@@ -37,7 +37,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'parikshit2097', variable: 'dockerhubpwd')]) {
                     sh "docker login -u parikshit2097 -p ${dockerhubpwd}"
                 }
-                sh "docker push parikshit2097/mynodejsapp-1"
+                sh "docker push parikshit2097/mynodejsapp-1.0"
             }
         }
      }
