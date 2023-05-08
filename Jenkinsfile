@@ -23,23 +23,24 @@ pipeline {
 
      }
      
-         stage('Build Docker Image'){
-            steps{
-                script{
-                    sh 'docker build -t parikshit2097/mynodejsapp-1.0 .'
+     stage('Build Docker Image') {
+        steps {
+            script {
+                sh 'docker build -t parikshit2097/mynodejsapp-1.0 .'
+            }
+        }
+     }
+     
+     stage("Push Docker image") {
+        steps {
+            script {
+                withCredentials([string(credentialsId: 'parikshit2097', variable: 'dockerhubpwd')]) {
+                    sh "docker login -u parikshit2097 -p ${dockerhubpwd}"
                 }
+                sh "docker push parikshit2097/mynodejsapp-1"
             }
         }
-       stage("Push Docker image"){
-    steps {
-        script {
-            withCredentials([string(credentialsId: 'parikshit2097', variable: 'dockerhubpwd')]) {
-                sh "docker login -u parikshit2097 -p ${dockerhubpwd}"
-            }
-            sh "docker push parikshit2097/mynodejsapp-1"
-        }
-    }
+     }
   
-   	}
-
    }
+}
