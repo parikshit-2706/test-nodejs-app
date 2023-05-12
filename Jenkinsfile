@@ -41,6 +41,11 @@ pipeline {
             }
         }
      }
+      stage('Run Docker Container') {
+        steps {
+            sh 'docker run -d --name mynodejsapp -p 8888:8888 parikshit2097/mynodejsapp-1.0'
+        }
+     }
   
    }
 }
